@@ -8,7 +8,7 @@ from docker_squash.version import version
 
 import codecs
 
-print os.environ['DOCKER_API_NAME']
+print ('the value of DOCKER_API_NAME is: ', os.environ.get('DOCKER_API_NAME'))
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
