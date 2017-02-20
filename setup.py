@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import sys
+import os
 
 from setuptools import setup, find_packages
 from setuptools.command.egg_info import egg_info
@@ -7,7 +8,7 @@ from docker_squash.version import version
 
 import codecs
 
-print sys.argv
+print os.environ['DOCKER_API_NAME']
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
