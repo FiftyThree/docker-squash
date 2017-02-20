@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-from setuptools import install, setup, find_packages
+from setuptools import setup, find_packages
+from setuptools.command.install import install
 from docker_squash.version import version
 
 import codecs
