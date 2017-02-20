@@ -30,7 +30,7 @@ class EggInfoWithOptions(egg_info):
 
 setup(
     cmdclass={
-        'egg-info': EggInfoWithOptions,
+        'egg_info': EggInfoWithOptions,
     },
     name = "docker-squash",
     version = version,
