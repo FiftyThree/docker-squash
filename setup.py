@@ -5,7 +5,6 @@ from setuptools.command.egg_info import egg_info
 from docker_squash.version import version
 
 import codecs
-import json
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
@@ -13,7 +12,7 @@ with open('requirements.txt') as f:
 class EggInfoWithOptions(egg_info):
 
     user_options = egg_info.user_options + [
-        ('with-old-docker-api=', None, 'Package name to use with install_requires for the Docker API')
+        ('dockerapi=', None, 'Package name to use with install_requires for the Docker API')
     ]
 
     def initialize_options(self):
@@ -21,8 +20,7 @@ class EggInfoWithOptions(egg_info):
         self.with_old_docker_api = None
 
     def finalize_options(self):
-        print('The custom option for old docker api is ', self.with_old_docker_api)
-        print('command line is ', self.distribution.__dict__)
+        print('The custom option for old docker api is ', self.dockerapi)
         egg_info.finalize_options(self)
 
     def run(self):
