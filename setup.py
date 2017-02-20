@@ -10,6 +10,7 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 class EggInfoWithOptions(egg_info):
+    command_consumes_arguments = 1
 
     user_options = egg_info.user_options + [
         ('with-old-docker-api=', None, 'Package name to use with install_requires for the Docker API')
