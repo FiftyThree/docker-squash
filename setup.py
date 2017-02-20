@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from setuptools import setup, find_packages
-from setuptools.command.install import install
+from setuptools.command.egg_info import egg_info
 from docker_squash.version import version
 
 import codecs
@@ -9,28 +9,28 @@ import codecs
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
-class InstallWithOptions(install):
+class EggInfoWithOptions(egg_info):
 
-    user_options = install.user_options + [
+    user_options = egg_info.user_options + [
         ('with-old-docker-api=', None, 'Package name to use with install_requires for the Docker API')
     ]
 
     def initialize_options(self):
-        install.initialize_options(self)
+        egg_info.initialize_options(self)
         self.with_old_docker_api = None
 
     def finalize_options(self):
         print('The custom option for old docker api is ', self.with_old_docker_api)
-        install.finalize_options(self)
+        egg_info.finalize_options(self)
 
-    def run(self, *arg, **kw):
-        print("Install requires is: %s" % (self.install_requires))
-        install.run(self, *arg, **kw)
+    def run(self):
+        print("Install requires is: %s" % (self.distribution.install_requires))
+        egg_info.run(self)
 
 
 setup(
     cmdclass={
-        'install': InstallWithOptions,
+        'egg-info': EggInfoWithOptions,
     },
     name = "docker-squash",
     version = version,
