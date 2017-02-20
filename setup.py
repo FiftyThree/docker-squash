@@ -17,7 +17,7 @@ class EggInfoWithOptions(egg_info):
 
     def initialize_options(self):
         egg_info.initialize_options(self)
-        self.with_old_docker_api = None
+        self.dockerapi = None
 
     def finalize_options(self):
         print('The custom option for old docker api is ', self.dockerapi)
