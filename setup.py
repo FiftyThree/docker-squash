@@ -21,7 +21,7 @@ class EggInfoWithOptions(egg_info):
 
     def finalize_options(self):
         print('The custom option for old docker api is ', self.with_old_docker_api)
-        print('command line is ', self.distribution.parse_command_line())
+        print('command line is ', self.distribution.get_cmdline_options())
         egg_info.finalize_options(self)
 
     def run(self):
