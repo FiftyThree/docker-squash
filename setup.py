@@ -7,6 +7,8 @@ from docker_squash.version import version
 
 import codecs
 
+print sys.argv
+
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
