@@ -5,6 +5,7 @@ from setuptools.command.egg_info import egg_info
 from docker_squash.version import version
 
 import codecs
+import json
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
