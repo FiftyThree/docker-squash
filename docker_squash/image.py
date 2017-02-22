@@ -197,8 +197,7 @@ class Image(object):
             raise SquashError("%s layer(s) in this image marked to squash, no squashing is required" % len(
                 self.layers_to_squash))
 
-        self.log.info("Attempting to squash last %s layers...",
-                      number_of_layers)
+        self.log.info("Attempting to squash last %s layers..." % number_of_layers)
         self.log.debug("Layers to squash: %s" % self.layers_to_squash)
         self.log.debug("Layers to move: %s" % self.layers_to_move)
 
