@@ -160,8 +160,8 @@ class Image(object):
 
         self.old_image_layers.reverse()
 
-        self.log.info("Old image has %s layers", len(self.old_image_layers))
-        self.log.debug("Old layers: %s", self.old_image_layers)
+        self.log.info("Old image has %s layers" % len(self.old_image_layers))
+        self.log.debug("Old layers: %s" % self.old_image_layers)
 
         # By default - squash all layers.
         if self.from_layer == None:
@@ -199,8 +199,8 @@ class Image(object):
 
         self.log.info("Attempting to squash last %s layers...",
                       number_of_layers)
-        self.log.debug("Layers to squash: %s", self.layers_to_squash)
-        self.log.debug("Layers to move: %s", self.layers_to_move)
+        self.log.debug("Layers to squash: %s" % self.layers_to_squash)
+        self.log.debug("Layers to move: %s" % self.layers_to_move)
 
         # Fetch the image and unpack it on the fly to the old image directory
         self._save_image(self.old_image_id, self.old_image_dir)
